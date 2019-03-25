@@ -5,35 +5,40 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import kotlinx.android.synthetic.main.activity_main.*
-import android.R
 import android.widget.TextView
 
 
 
 
 class MainActivity : AppCompatActivity() {
-
+    val REQUEST = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         var activityIntent:Intent
-
-        // Get the Intent that started this activity and extract the string
-        var intent = intent
-        var message = intent.getStringExtra(LoginActivity.email)
-
-        // Capture the layout's TextView and set the string as its text
-        mainUserTextView.setText(message)
-
-        if (mainUserTextView.text.isEmpty()) {
-            activityIntent = Intent(this, LoginActivity::class.java)
+        activityIntent = Intent(this, LoginActivity::class.java)
+        mainLogOutButton.setOnClickListener {
             //Call log in activity
-            startActivity(activityIntent)
-            finish()
+            startActivityForResult(activityIntent,REQUEST)
+        }
+
+
+        //Call log in activity
+        startActivityForResult(activityIntent,REQUEST)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                var message = data?.getStringExtra("EMAIL")
+                mainUserTextView.text = message.toString()
+            }
         }
 
     }
+
 
 
 }

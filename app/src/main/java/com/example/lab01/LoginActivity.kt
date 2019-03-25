@@ -7,6 +7,7 @@ import android.util.Patterns
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 import java.security.KeyStore
+import android.app.Activity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -22,10 +23,9 @@ class LoginActivity : AppCompatActivity() {
     private fun setListeners() {
         loginLogButton.setOnClickListener {
             if (loginUserMailEdit.text.toString().isValidEmail() && loginPassEdit.text.isNotEmpty()) {
-                var mainActivityIntent: Intent = Intent(this, MainActivity::class.java)
-                startActivity(mainActivityIntent.apply {
-                    putExtra("email",loginUserMailEdit.text.toString())
-                })
+                val result = Intent()
+                result.putExtra("EMAIL", loginUserMailEdit.text)
+                setResult(Activity.RESULT_OK, result)
                 finish()
             } else {
                 if (!loginUserMailEdit.text.toString().isValidEmail()){
