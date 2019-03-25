@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Lab01</string>
+    <string name="loginTitleTextView">Log in</string>
+    <string name="loginUserTextView">Email:</string>
+    <string name="loginPassTextview">Password</string>
+    <string name="loginLogButton">Log in</string>
+    <string name="mainUserTextView">Email:</string>
+    <string name="loginUserHintTextView">Input email</string>
+    <string name="loginHintPass">Input Password</string>
+    <string name="mainLogOutButton">Log Out</string>
+</resources>
