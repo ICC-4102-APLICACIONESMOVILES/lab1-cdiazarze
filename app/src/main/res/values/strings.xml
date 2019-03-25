@@ -8,4 +8,5 @@
     <string name="loginUserHintTextView">Input email</string>
     <string name="loginHintPass">Input Password</string>
     <string name="mainLogOutButton">Log Out</string>
+    <string name="mainPassTextView">Password</string>
 </resources>

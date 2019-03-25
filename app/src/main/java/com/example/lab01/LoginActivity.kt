@@ -13,6 +13,7 @@ class LoginActivity : AppCompatActivity() {
 
     companion object {
         val EMAIL= "EMAIL"
+        val PASS = "PASS"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
             if (loginUserMailEdit.text.toString().isValidEmail() && loginPassEdit.text.isNotEmpty()) {
                 val result = Intent()
                 result.putExtra(EMAIL, loginUserMailEdit.text.toString())
+                result.putExtra(PASS, loginPassEdit.text.toString())
                 setResult(Activity.RESULT_OK, result)
                 finish()
             } else {

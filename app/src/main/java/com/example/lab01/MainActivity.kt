@@ -32,7 +32,9 @@ class MainActivity : AppCompatActivity() {
             // Make sure the request was successful
             if (resultCode == RESULT_OK) {
                 var message = data?.getStringExtra(LoginActivity.EMAIL)
+                var messagePass = data?.getStringExtra(LoginActivity.PASS)
                 mainUserTextView.text = message
+                mainPassShow.text = messagePass
             }
         }
 
