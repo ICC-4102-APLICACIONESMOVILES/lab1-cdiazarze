@@ -11,6 +11,9 @@ import android.app.Activity
 
 class LoginActivity : AppCompatActivity() {
 
+    companion object {
+        val EMAIL= "EMAIL"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -24,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         loginLogButton.setOnClickListener {
             if (loginUserMailEdit.text.toString().isValidEmail() && loginPassEdit.text.isNotEmpty()) {
                 val result = Intent()
-                result.putExtra("EMAIL", loginUserMailEdit.text)
+                result.putExtra(EMAIL, loginUserMailEdit.text.toString())
                 setResult(Activity.RESULT_OK, result)
                 finish()
             } else {

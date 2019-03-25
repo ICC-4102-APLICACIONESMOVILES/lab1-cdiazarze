@@ -28,12 +28,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST) {
             // Make sure the request was successful
             if (resultCode == RESULT_OK) {
-                var message = data?.getStringExtra("EMAIL")
-                mainUserTextView.text = message.toString()
+                var message = data?.getStringExtra(LoginActivity.EMAIL)
+                mainUserTextView.text = message
             }
         }
 
